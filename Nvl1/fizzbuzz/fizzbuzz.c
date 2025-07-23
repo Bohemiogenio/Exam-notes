@@ -33,18 +33,13 @@ int main(void)
 		i++;
 		write(1, "\n", 1);
 	}
+
 }
 /*Comprueba primero si i es múltiplo de 3 y de 5.
-
 Si sí, imprime "fizzbuzz" y no mira más condiciones.
-
 Si no lo anterior, entra al primer else if y comprueba si solo es múltiplo de 3.
-
 Si sí, imprime "fizz" y salta al final del bloque.
-
 Si tampoco es múltiplo de 3, pasa al segundo else if y comprueba si es múltiplo de 5.
-
 Si sí, imprime "buzz".
-
 Si ninguna de las anteriores se cumple, entra al else final e imprime el número.
 */
