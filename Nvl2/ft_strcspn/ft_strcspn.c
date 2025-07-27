@@ -27,7 +27,7 @@ int main(void)
 	printf("Resultado4: %zu\n", ft_strcspn("abcdef", "c"));
 	printf("Resultado5: %zu\n", ft_strcspn("sin vocales", "xyz"));
 	printf("Resultado6: %zu\n", ft_strcspn("", "abc"));
-	printf("Resultado8: %zu\n", ft_strcspn("abcdef", ""));
+	printf("Resultado8: %zu\n", ft_strcspn("coche", "perrea"));
 		return 0;
 }
 /*

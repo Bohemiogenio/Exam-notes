@@ -2,7 +2,7 @@ int ft_strlen(char *str)
 {
 	int i;
 	i = 0;
-	:wwhile(str[i])
+	wwhile(str[i])
 	i++;
 	return (i);
 }
