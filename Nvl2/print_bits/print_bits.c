@@ -16,6 +16,6 @@ void print_bits(unsigned char octet)
 #include <stdio.h>
 int main(void)
 {
-	print_bits(123);
+	print_bits(13);
 	return 0;
 }

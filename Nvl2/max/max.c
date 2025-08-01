@@ -14,7 +14,7 @@ int max(int *tab, unsigned int len)
 	}
 	return max_val;//Devolvemos el numero mas grande encontrado.
 }
-/* #include <stdio.h>
+/*#include <stdio.h>
 int main(void)
 {
 	int numeros[]= {4, 9, 2, 15, 7};
