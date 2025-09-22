@@ -11,7 +11,7 @@ asi vamos cogiendo el digito de mas a la izquierda hasta llegar al de la derecha
 if (i > 9) es tu caso recursivo: “mientras quede más de un dígito, descompónlo un nivel más	
 En la primera llamada con i = 42:
 Como 42 > 9, llamas a ft_putnbr(4)
-Con i = 4 el if ya no se cumple (4 ≤ 9), así que no recursas y vas directo al write, imprimiendo '4'.
+Con i = 4 el if ya no se cumple (4 < 9), así que no recursas y vas directo al write, imprimiendo '4'.
 Tras esa impresión la llamada anterior retoma y hace su propio write, imprimiendo '2'.
 */
 

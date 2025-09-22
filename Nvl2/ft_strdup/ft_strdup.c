@@ -1,26 +1,29 @@
 #include <stdlib.h>
 
-char *ft_strdup(char *src)
+char	*ft_strdup(char *str)
 {
-	int i;
-	char *copy;
+	int		len = 0;
+	char	*cpy;
+	int		i = 0;
 
-	i = 0;
-	while(src[i])//Calculamos la longitud de src.
-		i++;
-	copy = malloc(i + 1);//Reservamos memoria para la copia (+1 para el '\0')
+	// Paso 1: obtener la longitud
+	while (str[len])
+		len++;
 
-	if(!copy)
-		return NULL; //Si malloc falla, retornamos NULL.
-	i = 0;
-	while(src[i])//Copia cada caracter de src a copy.
+	// Paso 2: reservar memoria (+1 para el '\0')
+	cpy = malloc(sizeof(char) * (len + 1));
+	if (!cpy)
+		return (NULL);
+
+	// Paso 3: copiar el contenido
+	while (str[i])
 	{
-		copy[i] = src[i];
+		cpy[i] = str[i];
 		i++;
 	}
-	copy[i] = '\0';//Añadimos el caracter nulo final.
+	cpy[i] = '\0'; // No olvidar el terminador
 
-	return copy;
+	return (cpy);
 }
 /*
 #include <stdio.h>
