@@ -25,7 +25,7 @@ char *ft_itoa(int nbr)
 		return (result); //..........Caso especial de 0.
 	}
 
-	n = nbr;
+	n = nbr; //.........................Volvemos a decir que n tiene el valor inicial de nbr.
 	if (n < 0)
 	{
 	result[0] = '-';
