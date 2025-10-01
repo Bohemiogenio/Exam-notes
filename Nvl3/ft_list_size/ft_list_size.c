@@ -1,19 +1,13 @@
-typedef struct    s_list
-{
-    struct s_list *next;
-    void          *data;
-}                 t_list;
+#include "ft_list.h"
 
-int	ft_list_size(t_list *begin_list)
+int	ft_list_size (t_list *begin_list)
 {
-	int	count;
+	int i = 0;
 
-	count = 0;
 	while (begin_list)
 	{
-		count++;
+		i++;
 		begin_list = begin_list->next;
 	}
-	return (count);
-}
-
+	return (i);
+}	

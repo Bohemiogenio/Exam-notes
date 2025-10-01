@@ -1,38 +1,37 @@
 #include <unistd.h>
 
-int main (int ac, char **av)
+void inter(char *s1, char *s2)
 {
-        int i;
-        int j;
-        int k;
+	int i = 0;
+	int j;
+	char array[256] = {0};
 
-        i = 0;
-        if (ac == 3)
-        {
-                while (av[1][i])
-                {
-                        j = 0;
-                        while (av[2][j])
-                        {
-                                if (av[1][i] == av[2][j])
-                                {
-                                        k = 0;
-                                        while (k < i)
-                                        {
-                                                if (av[1][k] == av[1][i])
-                                                        break;
-                                        k++;
-                                        }
-                                        if (k == i)
-                                                write(1, &av[1][i], 1);
-                                        break;
-                                }
-                                j++;
-                        }
-                        i++;
-                }
+	while (s1[i])
+	{
+		j = 0;
+		while (s2[j])
+		{
+			if (s1[i] == s2[j])
+			{
+				if (!array[(int)s1[i]])
+				{
+					write(1, &s1[i], 1);
+					array[(int)s1[i]] = 1;
+				}
+			}
+		j++;
+		}
+	i++;
+	}
+}
 
-        }
-        write(1, "\n", 1);
-        return (0);
+int main(int ac, char **av)
+{
+	if (ac == 3)
+	{
+		inter(av[1], av[2]);
+	
+	}
+	write(1, "\n", 1);
+	return (0);
 }
