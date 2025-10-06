@@ -1,38 +1,37 @@
 #include <unistd.h>
 
-int main(int argc, char **argv)
+void ft_union(char *s1, char *s2)
 {
 	int i = 0;
-	int lookup[256] = {0};
-
-	if (argc == 3)
+	unsigned char array[128] = {0};
+	int j = 0;
+	
+	while (s1[i])
 	{
-		while (argv[1][i])
-			lookup[(int)argv[1][i++]] = 1;
-		i = 0;
-		while (argv[2][i])
-			lookup[(int)argv[2][i++]] = 1;
-		i = 0;
-		while (argv[1][i])
+		if (!array[(int)s1[i]])
 		{
-			if(lookup[(int)argv[1][i]])
-			{
-				write(1, &argv[1][i], 1);
-				lookup[(int)argv[1][i]] = 0;
-			}
-		i++;
+			write(1, &s1[i], 1);
+			array[(int)s1[i]] = 1;
 		}
-		i = 0;
-		while (argv[2][i])
+	i++;
+	}
+	while (s2[j])
+	{
+		if (!array[(int)s2[j]])
 		{
-			if(lookup[(int)argv[2][i]])
-			{
-				write(1, &argv[2][i], 1);
-				lookup[(int)argv[2][i]] = 0;
-			}
-			i++;
-		}	
+			write(1, &s2[j], 1);
+			array[(int)s2[j]] = 1;
+		}
+	j++;
+	}	
+}
+
+int main(int ac, char **av)
+{
+	if (ac == 3)
+	{
+		ft_union(av[1], av[2]);		
 	}
 	write(1, "\n", 1);
-	return 0;
-} 
+	return (0);
+}

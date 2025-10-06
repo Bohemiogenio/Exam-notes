@@ -1,49 +1,40 @@
 #include <unistd.h>
 
-void    put_char(char c)
+int  is_spaces(char c)
 {
-    write(1, &c, 1);
+	return (c == ' ' || c == '\t');
 }
 
-int     is_space(char c)
+void ft_expand_str(char *str)
 {
-    /* delimitadores: espacio, tab y fin de cadena al mirar s[i+1] */
-    return (c == ' ' || c == '\t' || c == '\0');
+	int i = 0;
+	int flag = 0;
+
+	while (str[i])
+	{
+		while (str[i] && is_spaces(str[i]))
+			i++;
+		if (!str[i])
+			break ;
+		if (flag)
+			write(1, "   ", 3);
+		while (str[i] && !is_spaces(str[i]))
+		{
+			write(1, &str[i], 1);
+		i++;
+		}
+		flag = 1;
+	}
+	write(1, "\n", 1);
 }
 
-void    r_capitalizer(char *s)
+int main(int ac, char **av)
 {
-    int i = 0;
-
-    while (s[i])
-    {
-        /* pasar a minúscula por defecto */
-        if (s[i] >= 'A' && s[i] <= 'Z')
-            s[i] += 32;
-
-        /* si es letra y el siguiente es delimitador, poner en mayúscula */
-        if ((s[i] >= 'a' && s[i] <= 'z') && is_space(s[i + 1]))
-            s[i] -= 32;
-
-        put_char(s[i]);
-        i++;
-    }
-}
-
-int     main(int ac, char **av)
-{
-    int i = 1;
-
-    if (ac == 1)
-        put_char('\n');
-    else
-    {
-        while (i < ac)
-        {
-            r_capitalizer(av[i]);
-            put_char('\n');
-            i++;
-        }
-    }
-    return (0);
+	if (ac == 2)
+	{
+		ft_expand_str(av[1]);
+	}
+	else
+		write(1, "\n", 1);
+	return (0);
 }
