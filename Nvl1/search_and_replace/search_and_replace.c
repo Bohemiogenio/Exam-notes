@@ -1,22 +1,24 @@
 #include <unistd.h>
 
-int main(int argc, char **argv)
+int main(int ac, char ** av)
 {
-	int i;
-	i = 0;
-
-	if(argc == 4 && argv[2][1] == '\0' && argv[3][1] == '\0')
+	int i = 0;
+	
+	if (ac == 4)
 	{
-		// Verificamos que se han pasado 4 argumentos y que el segundo y tercer argumento son de un solo carácter.
-		while(argv[1][i]) //Recorremos el 1º string para modificar los valores.
+		while (av[1][i] && av[2][1] == '\0' && av[3][1] == '\0')
 		{
-			if(argv[1][i] == *argv[2]) //Cuando encontremos un valor igual al 2º argumento.
-				write(1, &argv[3], 1); //Le ponemos el valor del 3º argumento.
+			if (av[1][i] == av[2][0])
+			{
+				write(1, &av[3][0], 1);
+			}
 			else
-				write(1, &argv[1][i], 1);
-			i++;
+			{
+				write(1, &av[1][i], 1);
+			}
+		i++;	
 		}
 	}
 	write(1, "\n", 1);
-	return 0;
+	return (0);
 }

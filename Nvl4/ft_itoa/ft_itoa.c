@@ -1,35 +1,41 @@
 #include <stdlib.h>
 
-char	*ft_itoa(int nbr)
+char *ft_itoa(int nbr)
 {
-	int n = nbr;
-	int len = 0;
-	char *result;
+	long long n = nbr; //variable para guardar el valor min.
+	int len = 0; //Tamaño.
+	char *result; //Devolver con el cambio de int a char.
 
-	if (n < 0)
+	if (nbr <= 0) //.....................inicio calculo de tamaño para guardar memoria.
 		len++;
 	while (n)
 	{
 		n = n / 10;
 		len++;
 	}
+
 	result = malloc(sizeof(char) * (len + 1));
-	result[len] = '\0';
+	if (!result)
+		return (NULL);
+	result[len] = '\0'; //...............Fin reserva de memoria.
+	
 	if (nbr == 0)
 	{
 		result[0] = '0';
-		return (result);
+		return (result); //..........Caso especial de 0.
 	}
-	if (nbr < 0)
-	{
-		result[0] = '-';
-		nbr = -nbr;
-	}
-	while (nbr)
-	{
-		result[--len] = nbr % 10 + '0';
-		nbr = nbr / 10;
-	}
-	return (result);
-}
 
+	n = nbr; //.........................Volvemos a decir que n tiene el valor inicial de nbr.
+	if (n < 0)
+	{
+	result[0] = '-';
+		n = -n;
+	} //.................................Gestion de negativos.
+
+	while (n)
+	{
+		result[--len] = (n % 10) + '0';
+		n /= 10;
+	}//..................................Rellena cadena con digitos(de atras hacia adelante).
+	return(result);
+}
