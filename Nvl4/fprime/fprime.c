@@ -1,33 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void    fprime(int nb)
+int is_prime(int n)
 {
-    int n = 2;
-    if (nb < 1)
-        return ;
-    if (nb < 2)
-        printf("%d", nb);
-    else
-    {
-        while (nb > 1)
-        {
-            if (nb % n == 0)
-            {
-                printf("%d", n);
-                nb = nb / n;
-                if (nb > 1)
-                    printf("*");
-            }
-            else
-                n++;
-        }
-    }
+	int i = 2;
+	if (n < 2)
+		return (0);
+	while (i < n)
+	{
+		if(n % i == 0)
+			return 0;
+	i++;
+	}
+	return (1);
 }
 
-int main(int argc, char **argv)
+void fprime(int n)
 {
-    if (argc == 2)
-        fprime(atoi(argv[1]));
-    printf("\n");
+	int i = 2;
+	int first = 1;
+
+	if (n == 1)
+	{
+		printf("1");
+	return;
+	}
+
+	while (i <= n)
+	{
+		if (is_prime(i))
+		{
+			while (n % i == 0)
+			{
+				if (!first)
+					printf("*");
+				printf("%d", i);
+				n /= i;
+				first = 0;
+			}
+		}
+	i++;
+	}
+	
+}
+
+int main(int ac, char **av)
+{
+	if (ac == 2)
+	{
+		int n = atoi(av[1]);
+		fprime(n);
+	}
+	printf("\n");
+	return (0);	
 }
