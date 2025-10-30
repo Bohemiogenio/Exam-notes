@@ -2,7 +2,7 @@ int max(int *tab, unsigned int len)
 {
 	if(len == 0)
 		return 0;
-	//Si el array esta viacio, la funcion debe devolver 0.
+	//Si el array esta vacio, la funcion debe devolver 0.
 	unsigned int i = 1;
 	int max_val = tab[0];/*Creamos una variable llamada max_val que guarda el primer número del					array.*/
 	while(i < len)//Vamos a recorrer toidos los numeros del array,
