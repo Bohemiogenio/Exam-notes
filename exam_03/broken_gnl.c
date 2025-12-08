@@ -1,11 +1,12 @@
 #include "get_next_line.h"
+
 #include <stdlib.h>
-#include <unistd.h>
+#include <unistd.h> // incluir las dos librerias
 
 char	*ft_strchr(char *s, int c)
 {
 	int	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] && s[i] != c) //while(s[i] != c)
 		i++;
 	if (s[i] == c)
 		return (s + i);
@@ -15,17 +16,17 @@ char	*ft_strchr(char *s, int c)
 
 void	*ft_memcpy(void *dest, const void *src, int n)
 {
-	while (n-- > 0)
-		((char *)dest)[n] = ((char *)src)[n];
+	while (n-- > 0) // while(--n > 0)
+		((char *)dest)[n] = ((char *)src)[n]; // [n - 1]
 	return (dest);
 }
 
 int	ft_strlen(char *s)
 {
 	int res = 0;
-	while (s && *s)
+	while (s && *s) // while(*s)
 	{
-		s++;
+		s++; //--s
 		res++;
 	}
 	return (res);
@@ -56,9 +57,9 @@ void	*ft_memmove(void *dest, const void *src, int n)
 		return (ft_memcpy(dest, src, n));
 	else if (dest == src)
 		return (dest);
-	int	j = ft_strlen((char *)src);
-	int	i = 0;
-	while (i < j)
+	int	j = ft_strlen((char *)src); // int i = ft_.... quitar -1
+	int	i = 0; // nueva linea: int	i = 0;
+	while (i < j) // while (i >= 0)
 	{
 		((char *)dest)[i] = ((char *)src)[i];
 		i++;
@@ -79,7 +80,7 @@ char	*get_next_line(int fd)
 		if (read_ret == -1)
 			return (NULL);
 		b[read_ret] = 0;
-		if (read_ret == 0)
+		/*if (read_ret == 0)
 		{
 			if (*ret)
 				return (ret);
@@ -87,12 +88,14 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		tmp = ft_strchr(b, '\n');
-	}
+	}*/	
 	if (!str_append_mem(&ret, b, tmp - b + 1))
 	{
 		free(ret);
 		return (NULL);
 	}
-	memmove(b, tmp + 1, ft_strlen(tmp + 1));
+	memmove(b, tmp + 1, ft_strlen(tmp + 1)); //Nueva linea: memmove(b, tmp + 1, ft_strlen(tmp + 1));
 	return ret;
 }
+
+// :%s/size_t/int ejecutar en vim antes de darle a la I.
