@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	{
 		if (b_read < 0)
 		{
-			write(2, "Error\n", 6);
+			fprintf(stderr, "Error: ");
 			return (1);
 		}
 		buf[i] = c;
@@ -42,7 +42,7 @@ int	main(int ac, char **av)
 	i = 0;
 	while (buf[i])
 	{
-		if (!ft_strncmp(&buf[i], av[1], size))
+		if (ft_strncmp(&buf[i], av[1], size))
 		{
 			write(1, &buf[i], 1);
 			i++;
