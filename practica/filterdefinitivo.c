@@ -37,6 +37,7 @@ int main(int ac, char **av)
 		buf[i] = c;
 		i++;
 	}
+	buf[i] = '\0';
 	i = 0;
 	while (buf[i])
 	{

@@ -11,7 +11,10 @@ void swap(char *s1, char *s2)
 void sort(char *s)
 {
 	int i = 0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3157210 (exam)
 	while (s[i])
 	{
 		int j = i + 1;
@@ -24,15 +27,25 @@ void sort(char *s)
 		i++;
 	}
 }
+<<<<<<< HEAD
 void permu (char *str, char *result, int *used, int pos, int size)
 {
 	int i = 0;
+=======
+
+void permu(char *str, char *result, int *used, int pos, int size)
+{
+>>>>>>> 3157210 (exam)
 	if (pos == size)
 	{
 		result[size] = '\0';
 		puts(result);
 		return ;
 	}
+<<<<<<< HEAD
+=======
+	int i = 0;
+>>>>>>> 3157210 (exam)
 	while (i < size)
 	{
 		if (!used[i])
@@ -50,7 +63,13 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 		return (1);
+<<<<<<< HEAD
 	int size = 0;
+=======
+
+	int size = 0;
+
+>>>>>>> 3157210 (exam)
 	while (av[1][size])
 		size++;
 
@@ -58,7 +77,11 @@ int main(int ac, char **av)
 
 	char *result = calloc(size + 1, sizeof(char));
 	int *used = calloc(size, sizeof(int));
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 3157210 (exam)
 	permu(av[1], result, used, 0, size);
 
 	free(result);
