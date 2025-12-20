@@ -1,12 +1,12 @@
-
 #include <stdio.h>
+#include <unistd.h>
 
 int invalid(char *str)
 {
 	int i = 0;
-	int open = 0;
 	int close = 0;
-
+	int open = 0;
+	
 	while (str[i])
 	{
 		if (str[i] == '(')
@@ -20,7 +20,7 @@ int invalid(char *str)
 		}
 		i++;
 	}
-	return (open + close);
+	return (close + open);
 }
 
 void rip(char *str, int remove, int pos, int deleted)
@@ -49,5 +49,5 @@ int main(int ac, char **av)
 		return (1);
 	int remove = invalid(av[1]);
 	rip(av[1], remove, 0, 0);
-	return (0);
+	return (0);	
 }

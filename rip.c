@@ -1,5 +1,5 @@
-
 #include <stdio.h>
+#include <unistd.h>
 
 int invalid(char *str)
 {
@@ -25,7 +25,7 @@ int invalid(char *str)
 
 void rip(char *str, int remove, int pos, int deleted)
 {
-	if (deleted == remove && !invalid(str))
+	if (remove == deleted && !invalid(str))
 	{
 		puts(str);
 		return ;
@@ -37,7 +37,7 @@ void rip(char *str, int remove, int pos, int deleted)
 			char tmp = str[pos];
 			str[pos] = ' ';
 			rip(str, remove, pos + 1, deleted + 1);
-			str[pos] = tmp;
+			str[pos] = tmp;	
 		}
 		pos++;
 	}
@@ -47,6 +47,7 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 		return (1);
+
 	int remove = invalid(av[1]);
 	rip(av[1], remove, 0, 0);
 	return (0);
